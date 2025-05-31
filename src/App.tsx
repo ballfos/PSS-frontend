@@ -1,32 +1,51 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  NavLink,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Calendar from "./pages/Calendar";
 import Settings from "./pages/Settings";
 import "./App.css";
 
 function App() {
+  const isCurrent = ({
+    isActive,
+    isPending,
+  }: {
+    isActive: boolean;
+    isPending: boolean;
+  }) => (isActive ? "linkButton activeLink" : "linkButton");
+
   return (
     <Router>
       <div className="App">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/Home">ホーム</Link>
-            </li>
-            <li>
-              <Link to="/calendar">カレンダー</Link>
-            </li>
-            <li>
-              <Link to="/settings">設定</Link>
-            </li>
-          </ul>
-        </nav>
         <Routes>
           <Route path="/Home" element={<Home />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/Home" className={isCurrent}>
+                ホーム
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/calendar" className={isCurrent}>
+                カレンダー
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/settings" className={isCurrent}>
+                設定
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </Router>
   );

@@ -4,12 +4,12 @@
   padding: 20px;
 }
 .button-presence {
-
   position: relative;
   border-radius: 10px;
   height: 150px;
   width: 300px;
   font-size: 30px;
+  transition: background-color 0.3s ease;
 }
 
 .presence {
