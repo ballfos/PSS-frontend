@@ -13,9 +13,14 @@ interface UserListProps {
 }
 
 const UserList: React.FC<UserListProps> = ({ users }) => {
+  // 入室中の人を優先的に表示するためにソート
+  const sortedUsers = [...users].sort((a, b) => {
+    if (a.isPresence === b.isPresence) return 0;
+    return a.isPresence ? -1 : 1; // 入室中の人を前に
+  });
   return (
     <div className="userList">
-      {users.map((user, index) => (
+      {sortedUsers.map((user, index) => (
         <UserCard
           id={user.id}
           name={user.name}
