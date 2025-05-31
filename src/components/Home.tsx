@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
+
 function Home() {
+  const [isPresence, setIsPresence] = useState<boolean>(false);
   return (
     <div>
-      <h1>ホームページ</h1>
-      <p>ここはホームページです。</p>
+        <button className={`button-presence ${isPresence ? 'presence' : 'notpresence'}`} onClick={() => setIsPresence(!isPresence)}>
+          {isPresence ? "退室する" : "入室する"}
+        </button>
     </div>
   );
 }
