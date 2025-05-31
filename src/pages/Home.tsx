@@ -1,5 +1,6 @@
 import "./Home.css";
 import UserList from "../components/UserList";
+import ButtonInRoom from "../components/ButtonInRoom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -27,18 +28,13 @@ const Home: React.FC = () => {
         console.error("データの取得に失敗しました:", error);
         console.log("取得したデータ:", data);
       });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [in_room, setin_room] = useState<boolean>(false);
   return (
     <div className="Home">
-      <button
-        className={`button-presence ${in_room ? "presence" : "notpresence"}`}
-        onClick={() => setin_room(!in_room)}
-      >
-        {in_room ? "退室する" : "入室する"}
-      </button>
+      <ButtonInRoom />
 
       <UserList users={data} />
     </div>
