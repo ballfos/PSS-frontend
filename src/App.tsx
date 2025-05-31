@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Calendar from "./components/Calendar";
-import Settings from "./components/Settings";
+import Home from "./pages/Home";
+import Calendar from "./pages/Calendar";
+import Settings from "./pages/Settings";
 import "./App.css";
 
 function App() {
