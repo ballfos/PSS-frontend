@@ -2,10 +2,12 @@ import UserCard from "./UserCard";
 import "./UserList.css";
 
 interface User {
-  id: number;
+  id: string;
   name: string;
-  atendanceCount: number;
-  isPresence: boolean;
+  //   atendanceCount: number;
+  in_room: boolean;
+  points: number;
+  updated_at: string;
 }
 
 interface UserListProps {
@@ -15,17 +17,19 @@ interface UserListProps {
 const UserList: React.FC<UserListProps> = ({ users }) => {
   // 入室中の人を優先的に表示するためにソート
   const sortedUsers = [...users].sort((a, b) => {
-    if (a.isPresence === b.isPresence) return 0;
-    return a.isPresence ? -1 : 1; // 入室中の人を前に
+    if (a.in_room === b.in_room) return 0;
+    return a.in_room ? -1 : 1; // 入室中の人を前に
   });
   return (
     <div className="userList">
-      {sortedUsers.map((user, index) => (
+      {users.map((user, index) => (
         <UserCard
           id={user.id}
           name={user.name}
-          atendanceCount={user.atendanceCount}
-          isPresence={user.isPresence}
+          //   atendanceCount={user.atendanceCount}
+          in_room={user.in_room}
+          points={user.points}
+          updated_at={user.updated_at}
         />
       ))}
     </div>

@@ -1,31 +1,46 @@
-import React, { useState } from "react";
 import "./Home.css";
 import UserList from "../components/UserList";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+// User type definition
+type User = {
+  id: string;
+  name: string;
+  in_room: boolean;
+  points: number;
+  updated_at: string;
+};
+
 const Home: React.FC = () => {
-  // サーバーから渡されるデータの例
-  const users = [
-    { id: 1, name: "Alice", atendanceCount: 5, isPresence: true },
-    { id: 2, name: "Bob", atendanceCount: 3, isPresence: false },
-    { id: 3, name: "Charlie", atendanceCount: 8, isPresence: true },
-    { id: 4, name: "David", atendanceCount: 2, isPresence: false },
-    { id: 5, name: "Eve", atendanceCount: 6, isPresence: true },
-    { id: 6, name: "Frank", atendanceCount: 4, isPresence: false },
-    { id: 7, name: "Grace", atendanceCount: 7, isPresence: true },
-    { id: 8, name: "Heidi", atendanceCount: 1, isPresence: false },
-    { id: 9, name: "Ivan", atendanceCount: 9, isPresence: true },
-    { id: 10, name: "Judy", atendanceCount: 0, isPresence: false },
-  ];
-  const [isPresence, setIsPresence] = useState<boolean>(false);
+  const [data, setData] = useState<User[]>([]);
+  const ServerURL = "https://pss-backend-ih4c.onrender.com/members";
+  useEffect(() => {
+    // サーバーからデータを取得
+    axios
+      .get(ServerURL)
+      .then((response) => {
+        setData(response.data.members); // データを状態に保存
+        console.log("取得したデータ:", response.data.members);
+      })
+      .catch((error) => {
+        console.error("データの取得に失敗しました:", error);
+        console.log("取得したデータ:", data);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [in_room, setin_room] = useState<boolean>(false);
   return (
     <div className="Home">
       <button
-        className={`button-presence ${isPresence ? "presence" : "notpresence"}`}
-        onClick={() => setIsPresence(!isPresence)}
+        className={`button-presence ${in_room ? "presence" : "notpresence"}`}
+        onClick={() => setin_room(!in_room)}
       >
-        {isPresence ? "退室する" : "入室する"}
+        {in_room ? "退室する" : "入室する"}
       </button>
 
-      <UserList users={users} />
+      <UserList users={data} />
     </div>
   );
 };
