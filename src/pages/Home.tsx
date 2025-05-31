@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Home.css";
-import UserCard from "../components/UserCard";
 import UserList from "../components/UserList";
 const Home: React.FC = () => {
   // サーバーから渡されるデータの例
@@ -25,20 +24,7 @@ const Home: React.FC = () => {
       >
         {isPresence ? "退室する" : "入室する"}
       </button>
-      {/* <UserCard
-        id={21122333}
-        name="山田 太郎"
-        atendance-count={5}
-        isPresence={isPresence}
-      /> */}
-      {/* {users.map((user, index) => (
-        <UserCard
-          id={user.id}
-          name={user.name}
-          atendanceCount={user.atendanceCount}
-          isPresence={user.isPresence}
-        />
-      ))} */}
+
       <UserList users={users} />
     </div>
   );

@@ -10,3 +10,9 @@
 .user-info {
   margin-left: 10px;
 }
+
+@media (min-width: 1000px) {
+  .user-card {
+      width: 40%;
+  }
+}
