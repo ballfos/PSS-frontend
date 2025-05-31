@@ -12,7 +12,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">ホーム</Link>
+              <Link to="/Home">ホーム</Link>
             </li>
             <li>
               <Link to="/calendar">カレンダー</Link>
@@ -23,7 +23,7 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
