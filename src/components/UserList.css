@@ -1,0 +1,13 @@
+.userList {
+    width: 100%
+}
+
+@media (min-width: 1000px) {
+    .userList {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+    }
+}
