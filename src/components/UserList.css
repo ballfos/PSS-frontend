@@ -1,0 +1,25 @@
+.userList {
+    width: 100%
+}
+
+.userCard {
+    width: 100%
+}
+
+@media (min-width: 600px) {
+    .userList {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    .userList:nth-child(odd) {
+        align-self: flex-start;
+    }
+    .userList:nth-child(even) {
+        align-self: flex-end;
+    }
+    .userCard {
+        width: 40%
+    }
+}

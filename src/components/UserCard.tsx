@@ -6,6 +6,7 @@ function UserCard({
   atendanceCount = 0,
   isPresence,
 }: {
+  id: number;
   name: string;
   atendanceCount?: number;
   isPresence: boolean;
