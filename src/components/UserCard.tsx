@@ -3,13 +3,13 @@ export default UserCard;
 
 function UserCard({
   name,
-  atendanceCount = 0,
-  isPresence,
+  in_room,
 }: {
-  id: number;
+  id: string;
   name: string;
-  atendanceCount?: number;
-  isPresence: boolean;
+  in_room: boolean;
+  points: number;
+  updated_at: string;
 }) {
   return (
     <div className="user-card">
@@ -17,10 +17,10 @@ function UserCard({
         <h2>{name}</h2>
       </div>
 
-      <div className={`status ${isPresence ? "presence" : "notpresence"}`}>
-        {isPresence ? "入室中" : "退室中"}
+      <div className={`status ${in_room ? "presence" : "notpresence"}`}>
+        {in_room ? "入室中" : "退室中"}
       </div>
-      <p>{atendanceCount}</p>
+      {/* <p>{atendanceCount}</p> */}
     </div>
   );
 }
