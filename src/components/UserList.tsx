@@ -22,7 +22,7 @@ const UserList: React.FC<UserListProps> = ({ users }) => {
   });
   return (
     <div className="userList">
-      {users.map((user, index) => (
+      {sortedUsers.map((user, index) => (
         <UserCard
           id={user.id}
           name={user.name}

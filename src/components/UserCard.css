@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 10px;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
@@ -23,13 +24,11 @@
     font-weight: bold;
   }
   
-  .presence {
-
-        background-color: #ffa500;
-        color: #000000; 
-
-  }
-  
-  .notpresence {
+.presence {
+    background-color: #ffa500;
     color: #000000; 
-  }
+}
+
+.notpresence {
+  color: #000000; 
+}
