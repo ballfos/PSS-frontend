@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
-
+import UserCard from "../components/UserCard";
 function Home() {
   const [isPresence, setIsPresence] = useState<boolean>(false);
   return (
@@ -11,6 +11,7 @@ function Home() {
       >
         {isPresence ? "退室する" : "入室する"}
       </button>
+      <UserCard name="山田 太郎" atendance-count={5} isPresence={isPresence} />
     </div>
   );
 }
