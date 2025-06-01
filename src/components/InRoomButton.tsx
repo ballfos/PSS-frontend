@@ -5,21 +5,17 @@ interface ButtonInRoomProps {
   ServerURL: string;
   studentId: string;
 }
-function InRoomButton({ ServerURL }: ButtonInRoomProps) {
+function InRoomButton({ ServerURL, studentId }: ButtonInRoomProps) {
   const [in_room, setin_room] = useState<boolean>(false);
-
   const controlInRoom = async () => {
     const newInRoomState = !in_room;
     setin_room(newInRoomState);
 
-    //   .post(`${ServerURL}/25622038`){
-    //     in_room: true
-
-    //    }
     try {
       // サーバーに状態を送信
-      const response = await axios.patch(`${ServerURL}/25622038`, {
-        in_room: true,
+      const response = await axios.patch(`${ServerURL}/${studentId}`, {
+        in_room: newInRoomState,
+        studentId: studentId,
       });
       console.log("サーバーの応答:", response.data);
     } catch (error) {
