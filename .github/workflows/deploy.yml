@@ -30,13 +30,13 @@ jobs:
 
       # 5. index.html を 404.html にコピー
       - name: Copy index.html to 404.html
-        run: cp dist/index.html dist/404.html
+        run: cp build/index.html build/404.html
 
       # 6. GitHub Pages にデプロイするためのアーティファクトをアップロード
       - name: Upload build to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./build
 
   deploy:
     needs: build
