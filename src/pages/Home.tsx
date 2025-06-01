@@ -12,6 +12,7 @@ const Home: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setStudentId(value);
+
     localStorage.setItem("studentId", value);
   };
   const ServerURL = "https://pss-backend-ih4c.onrender.com/members";
