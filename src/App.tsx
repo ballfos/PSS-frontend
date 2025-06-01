@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/PSS-frontend">
       <div className="App">
         <Routes>
           <Route path="/Home" element={<Home />} />
