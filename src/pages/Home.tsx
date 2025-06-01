@@ -3,17 +3,7 @@ import UserList from "../components/UserList";
 import InRoomButton from "../components/InRoomButton";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-// User type definition
-type User = {
-  id: string;
-  name: string;
-  in_room: boolean;
-  points: number;
-  updated_at: string;
-  grade: string;
-};
-
+import { User } from "../interfaces/User";
 const Home: React.FC = () => {
   const [data, setData] = useState<User[]>([]);
   const [studentId, setStudentId] = useState("");

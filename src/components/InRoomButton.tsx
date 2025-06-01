@@ -33,7 +33,7 @@ function InRoomButton({
       className={`button-presence ${in_room ? "presence" : "notpresence"}`}
       onClick={() => controlInRoom()}
     >
-      {in_room ? "入室中" : "入室する"}
+      {in_room ? "在室中" : "入室する"}
     </button>
   );
 }

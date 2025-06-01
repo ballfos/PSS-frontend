@@ -33,7 +33,7 @@ function UserCard({
         <h2>{points}</h2>
       </div>
       <div className={`status ${in_room ? "presence" : "notpresence"}`}>
-        {in_room ? "入室中" : "退室中"}
+        {in_room ? "在室中" : "退室中"}
       </div>
     </div>
   );
