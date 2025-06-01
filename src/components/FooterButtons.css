@@ -8,9 +8,11 @@ ul {
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 5px;
   justify-content: space-between;
   list-style: none;
-  padding: 5px;
+  background-color: #808080;
+  padding: 10px;
   margin: 5px;
   z-index: 10;
 }
@@ -36,6 +38,13 @@ li > a {
 @media (max-width: 500px) {
   .linkButton {
       font-size: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  ul {
+    width: 60%;
+    margin: 0 auto;
   }
 }
 

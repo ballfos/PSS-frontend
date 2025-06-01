@@ -64,3 +64,11 @@
   font-weight: bold;
   font-size: 16px;
 }
+
+.appointments {
+  width: 80%;
+  height: 10vh;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-top: 10px;
+}
