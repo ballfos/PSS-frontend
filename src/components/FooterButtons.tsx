@@ -14,7 +14,7 @@ function FooterButtons() {
     <nav>
       <ul>
         <li>
-          <NavLink to="/" className={isCurrent}>
+          <NavLink to="/Home" className={isCurrent}>
             ホーム
           </NavLink>
         </li>
