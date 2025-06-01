@@ -8,6 +8,7 @@ interface User {
   in_room: boolean;
   points: number;
   updated_at: string;
+  grade: string;
 }
 
 interface UserListProps {
@@ -30,6 +31,7 @@ const UserList: React.FC<UserListProps> = ({ users }) => {
           in_room={user.in_room}
           points={user.points}
           updated_at={user.updated_at}
+          grade={user.grade}
         />
       ))}
     </div>

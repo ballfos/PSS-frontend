@@ -1,6 +1,6 @@
 import "./Home.css";
 import UserList from "../components/UserList";
-import ButtonInRoom from "../components/ButtonInRoom";
+import InRoomButton from "../components/InRoomButton";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -11,10 +11,26 @@ type User = {
   in_room: boolean;
   points: number;
   updated_at: string;
+  grade: string;
 };
 
 const Home: React.FC = () => {
   const [data, setData] = useState<User[]>([]);
+  const [studentId, setStudentId] = useState("");
+
+  useEffect(() => {
+    const savedStudentId = localStorage.getItem("studentId");
+    if (savedStudentId) {
+      setStudentId(savedStudentId);
+    }
+  }, []);
+
+  // 学籍番号を更新し、localStorageに保存
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setStudentId(value);
+    localStorage.setItem("studentId", value);
+  };
   const ServerURL = "https://pss-backend-ih4c.onrender.com/members";
   useEffect(() => {
     // サーバーからデータを取得
@@ -34,7 +50,19 @@ const Home: React.FC = () => {
 
   return (
     <div className="Home">
-      <ButtonInRoom ServerURL={ServerURL} />
+      {/* 学籍番号入力フォームはここにおきます */}
+      <div className="idtext">
+        <label>
+          学籍番号:{" "}
+          <input
+            type="text"
+            placeholder="00000000"
+            value={studentId}
+            onChange={handleInputChange}
+          />
+        </label>
+      </div>
+      <InRoomButton ServerURL={ServerURL} studentId={studentId} />
 
       <UserList users={data} />
     </div>

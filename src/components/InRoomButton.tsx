@@ -1,10 +1,11 @@
-import "./ButtonInRoom.css";
+import "./InRoomButton.css";
 import { useState } from "react";
 import axios from "axios";
 interface ButtonInRoomProps {
   ServerURL: string;
+  studentId: string;
 }
-function ButtonInRoom({ ServerURL }: ButtonInRoomProps) {
+function InRoomButton({ ServerURL }: ButtonInRoomProps) {
   const [in_room, setin_room] = useState<boolean>(false);
 
   const controlInRoom = async () => {
@@ -35,4 +36,4 @@ function ButtonInRoom({ ServerURL }: ButtonInRoomProps) {
   );
 }
 
-export default ButtonInRoom;
+export default InRoomButton;
