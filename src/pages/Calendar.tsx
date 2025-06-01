@@ -37,11 +37,16 @@ function CalendarPage() {
           ) : null
         }
         tileClassName={({ date, view }) => {
-          if (isToday(date)) {
-            return "today";
-          }
-          if (view === "month" && date.getDay() === 6) {
-            return "saturday";
+          if (view === "month") {
+            if (isToday(date)) {
+              return "today";
+            }
+            if (date.toDateString() === openAppts?.toDateString()) {
+              return 'selected-date';
+            }
+            if (view === "month" && date.getDay() === 6) {
+              return "saturday";
+            }
           }
           return null;
         }}
