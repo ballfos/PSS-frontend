@@ -1,11 +1,13 @@
 .button-presence {
   position: relative;
-  border-radius: 10px;
+  border: 1.5px solid #2c220f; 
+  border-radius: 15px;
   height: 150px;
   width: 300px;
   font-size: 30px;
   margin-bottom: 10px;
   transition: background-color 0.3s ease;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
 .presence {

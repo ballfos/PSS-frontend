@@ -5,7 +5,11 @@ interface ButtonInRoomProps {
   ServerURL: string;
   studentId: string;
 }
-function InRoomButton({ ServerURL, studentId }: ButtonInRoomProps) {
+function InRoomButton({
+  ServerURL,
+  studentId,
+  onUpdate,
+}: ButtonInRoomProps & { onUpdate: () => void }) {
   const [in_room, setin_room] = useState<boolean>(false);
   const controlInRoom = async () => {
     const newInRoomState = !in_room;
@@ -18,16 +22,18 @@ function InRoomButton({ ServerURL, studentId }: ButtonInRoomProps) {
         studentId: studentId,
       });
       console.log("サーバーの応答:", response.data);
+      onUpdate();
     } catch (error) {
       console.error("サーバーへのリクエストに失敗しました:", error);
     }
   };
+
   return (
     <button
       className={`button-presence ${in_room ? "presence" : "notpresence"}`}
       onClick={() => controlInRoom()}
     >
-      {in_room ? "退室する" : "入室する"}
+      {in_room ? "入室中" : "入室する"}
     </button>
   );
 }
