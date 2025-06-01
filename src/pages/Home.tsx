@@ -11,6 +11,7 @@ type User = {
   in_room: boolean;
   points: number;
   updated_at: string;
+  grade: string;
 };
 
 const Home: React.FC = () => {
@@ -34,6 +35,12 @@ const Home: React.FC = () => {
 
   return (
     <div className="Home">
+      {/* 学籍番号入力フォームはここにおきます */}
+      <div className="idtext">
+        <label>
+          学籍番号: <input type="text" placeholder="00000000" />
+        </label>
+      </div>
       <ButtonInRoom ServerURL={ServerURL} />
 
       <UserList users={data} />
