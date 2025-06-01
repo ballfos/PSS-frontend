@@ -3,27 +3,10 @@ import UserList from "../components/UserList";
 import InRoomButton from "../components/InRoomButton";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-// User type definition
-type User = {
-  id: string;
-  name: string;
-  in_room: boolean;
-  points: number;
-  updated_at: string;
-  grade: string;
-};
-
+import { User } from "../interfaces/User";
 const Home: React.FC = () => {
   const [data, setData] = useState<User[]>([]);
   const [studentId, setStudentId] = useState("");
-
-  useEffect(() => {
-    const savedStudentId = localStorage.getItem("studentId");
-    if (savedStudentId) {
-      setStudentId(savedStudentId);
-    }
-  }, []);
 
   // 学籍番号を更新し、localStorageに保存
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,8 +15,8 @@ const Home: React.FC = () => {
     localStorage.setItem("studentId", value);
   };
   const ServerURL = "https://pss-backend-ih4c.onrender.com/members";
-  useEffect(() => {
-    // サーバーからデータを取得
+
+  const fetchMembers = () => {
     axios
       .get(ServerURL)
       .then((response) => {
@@ -42,10 +25,16 @@ const Home: React.FC = () => {
       })
       .catch((error) => {
         console.error("データの取得に失敗しました:", error);
-        console.log("取得したデータ:", data);
       });
+  };
+  useEffect(() => {
+    const savedStudentId = localStorage.getItem("studentId");
+    if (savedStudentId) {
+      setStudentId(savedStudentId);
+    }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // 初回データ取得
+    fetchMembers();
   }, []);
 
   return (
@@ -53,7 +42,7 @@ const Home: React.FC = () => {
       {/* 学籍番号入力フォームはここにおきます */}
       <div className="idtext">
         <label>
-          学籍番号:{" "}
+          ID:{" "}
           <input
             type="text"
             placeholder="00000000"
@@ -62,7 +51,11 @@ const Home: React.FC = () => {
           />
         </label>
       </div>
-      <InRoomButton ServerURL={ServerURL} studentId={studentId} />
+      <InRoomButton
+        ServerURL={ServerURL}
+        studentId={studentId}
+        onUpdate={fetchMembers}
+      />
 
       <UserList users={data} />
     </div>

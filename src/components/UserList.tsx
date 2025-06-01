@@ -1,16 +1,6 @@
 import UserCard from "./UserCard";
 import "./UserList.css";
-
-interface User {
-  id: string;
-  name: string;
-  //   atendanceCount: number;
-  in_room: boolean;
-  points: number;
-  updated_at: string;
-  grade: string;
-}
-
+import { User } from "../interfaces/User";
 interface UserListProps {
   users: User[];
 }

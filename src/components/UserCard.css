@@ -3,9 +3,10 @@
   align-items: center;
   padding: 10px;
   margin: 10px;
-  border: 1px solid #ccc;
+  border: 3px solid #363636;
   border-radius: 5px;
   background-color: #f9f9f9;
+  position: relative; 
 }
 
 .user-info {
@@ -31,4 +32,19 @@
 
 .notpresence {
   color: #000000; 
+}
+
+.points {
+    position: absolute;
+    top: -15px; /* カードの上からの距離 */
+    right: 90px; /* カードの右からの距離 */
+    font-size: 14px;
+    color: #000000;
+    display: flex; /* 横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+  .points img {
+    margin-right: 5px; /* 画像とテキストの間にスペースを追加 */
+    width: 20px; /* 画像の幅 */
+    height: 20px; /* 画像の高さ */
 }
