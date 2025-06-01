@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import "./ButtonsFooter.css";
+import "./FooterButtons.css";
 
-function ButtonsFooter() {
+function FooterButtons() {
   const isCurrent = ({
     isActive,
     isPending,
@@ -33,4 +33,4 @@ function ButtonsFooter() {
   );
 }
 
-export default ButtonsFooter;
+export default FooterButtons;

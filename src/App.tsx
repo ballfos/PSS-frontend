@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import ButtonsFooter from "./components/ButtonsFooter";
+import FooterButtons from "./components/FooterButtons";
 import Calendar from "./pages/Calendar";
 import Settings from "./pages/Settings";
 import "./App.css";
@@ -15,7 +15,7 @@ function App() {
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
-        <ButtonsFooter />
+        <FooterButtons />
       </div>
     </Router>
   );
