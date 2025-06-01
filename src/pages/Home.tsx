@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="Home">
-      <ButtonInRoom />
+      <ButtonInRoom ServerURL={ServerURL} />
 
       <UserList users={data} />
     </div>

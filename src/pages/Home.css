@@ -3,23 +3,3 @@
   min-height: 100vh;
   padding: 20px;
 }
-
-.button-presence {
-  position: relative;
-  border-radius: 10px;
-  height: 150px;
-  width: 300px;
-  font-size: 30px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.presence {
-  background-color: #ffa500;
-  color: #000000;
-}
-
-.notpresence {
-  background-color: #808080;
-  color: #ffffff;
-}
